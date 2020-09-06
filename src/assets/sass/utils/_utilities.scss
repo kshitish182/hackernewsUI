@@ -38,7 +38,7 @@
     @media (min-width: $md) {
       @content;
     }
-  } @else if($breakpoint == 'lg') {
+  }     @else if($breakpoint == 'lg') {
     @media (min-width: $lg) {
       @content;
     }

@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "pre-commit": "lint-staged",
+    "precommit": "lint-staged",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "build:css": "node-sass src/assets/sass/style.scss src/assets/sass/style.css",
