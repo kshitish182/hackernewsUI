@@ -12,7 +12,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "precommit": "lint-staged",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "build:css": "node-sass src/assets/sass/style.scss src/assets/sass/style.css",
@@ -20,8 +19,13 @@
     "eject": "react-scripts eject",
     "prettify": "prettier --write \"src/**/*.{js,jsx,json,scss}\""
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{js,jsx,json,scss}":[
+    "*.{js,jsx,json,scss}": [
       "prettier --write",
       "git add"
     ]
@@ -43,6 +47,7 @@
   },
   "devDependencies": {
     "husky": "^4.2.5",
+    "lint-staged": "^10.3.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.1.1"
   }

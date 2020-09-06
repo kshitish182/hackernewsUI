@@ -21,12 +21,7 @@
     @media (min-width: $xxs) {
       @content;
     }
-
-
-
-
-
-  }            @else if($breakpoint == 'xs') {
+  } @else if($breakpoint == 'xs') {
     @media (min-width: $xs) {
       @content;
     }
@@ -38,7 +33,7 @@
     @media (min-width: $md) {
       @content;
     }
-  }     @else if($breakpoint == 'lg') {
+  } @else if($breakpoint == 'lg') {
     @media (min-width: $lg) {
       @content;
     }
@@ -47,6 +42,6 @@
       @content;
     }
   } @else {
-    @error                        Invalid breakpoint unquote(":") "#{$breakpoint}" doesnot exist;
+    @error Invalid breakpoint unquote(":") "#{$breakpoint}" doesnot exist;
   }
 }
