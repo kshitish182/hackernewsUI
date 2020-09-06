@@ -12,11 +12,19 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "pre-commit": "pretty-quick --staged",
+    "pre-commit": "lint-staged",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "build:css": "node-sass src/assets/sass/style.scss src/assets/sass/style.css",
+    "watch:css": "run-s build:css && node-sass src/assets/sass/style.scss src/assets/sass/style.css --watch --recursive",
     "eject": "react-scripts eject",
-    "prettify": "prettier --write \"src/**/.{js,jsx,json,scss}\""
+    "prettify": "prettier --write \"src/**/*.{js,jsx,json,scss}\""
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,scss}":[
+      "prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,7 +43,7 @@
   },
   "devDependencies": {
     "husky": "^4.2.5",
-    "prettier": "^2.1.1",
-    "pretty-quick": "^3.0.0"
+    "node-sass": "^4.14.1",
+    "prettier": "^2.1.1"
   }
 }
