@@ -29,7 +29,7 @@ const Pagination = ({ newsIds }) => {
 
   return (
     <>
-      <ul className="pagination list">
+      <ul className="pagination list list--news-feed">
         {!!paginationSlots &&
           paginationSlots[pageIndex].map((value, index) => <NewsItem key={index} newsItemId={value} />)}
       </ul>

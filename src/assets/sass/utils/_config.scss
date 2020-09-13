@@ -14,11 +14,18 @@ $primary-color: #db4c3f;
 $white: #fff;
 $black: #000;
 $gray: gray;
+$electric: #7ef9ff;
+$baby-blue: #89cff0;
 $gray-light: #b3b3b3;
+$gray-lighter: #ededed;
 
 // backgrounds
 $header-bg: $white;
 $btn-primary: $gray;
+
+//states
+$link--hover: $baby-blue;
+$link-border--hover: $baby-blue;
 
 // box-shadows
 $shadow--light: 0px 1px 15px rgba(0, 0, 0, 0.1);

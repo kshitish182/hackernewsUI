@@ -6,7 +6,12 @@ const NewsItem = ({ newsItemId }) => {
   const [newsItemData, setNewsItemData] = React.useState(null);
   const [isdataLoading, setLoadingStatus] = React.useState(false);
 
-  const loadingState = <li>Fetching</li>;
+  const loadingState = (
+    <li className="list__item preloader-block">
+      <div className="preloader-block__content" />
+      <div className="preloader-block__content sm mt--5" />
+    </li>
+  );
 
   React.useEffect(() => {
     (async () => {
@@ -17,7 +22,22 @@ const NewsItem = ({ newsItemId }) => {
     })();
   }, [newsItemId]);
 
-  return <>{isdataLoading ? loadingState : <li className="card">{newsItemData && newsItemData.data.title}</li>}</>;
+  console.log(newsItemData && newsItemData.data);
+
+  return (
+    <>
+      {isdataLoading ? (
+        loadingState
+      ) : (
+        <li className="list__item">
+          <h2 className="text--header">{newsItemData && newsItemData.data.title}</h2>
+          <div className="text--secondary">
+            By: <span>{newsItemData && newsItemData.data.by} </span>
+          </div>
+        </li>
+      )}
+    </>
+  );
 };
 
 export default NewsItem;

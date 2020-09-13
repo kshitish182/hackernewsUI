@@ -1,0 +1,29 @@
+.preloader-block {
+  > * {
+    animation: flicker 1s infinite linear;
+  }
+
+  @include e(content) {
+    width: 75%;
+    height: 15px;
+    background: $gray-lighter;
+
+    &.md {
+      width: 50%;
+    }
+
+    &.sm {
+      width: 200px;
+    }
+  }
+}
+
+// animation for prelaoder
+@keyframes flicker {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

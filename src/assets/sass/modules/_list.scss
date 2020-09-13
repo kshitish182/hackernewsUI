@@ -1,0 +1,25 @@
+.list {
+  @include e(item) {
+    margin-bottom: 10px;
+  }
+
+  @include m(news-feed) {
+    > .list__item {
+      padding: 15px;
+      border-bottom: 1px solid $gray-lighter;
+      cursor: pointer;
+
+      &:hover {
+        border-color: $link-border--hover;
+
+        .text--header {
+          color: $link--hover;
+        }
+      }
+    }
+
+    .text--secondary {
+      margin-top: 5px;
+    }
+  }
+}
