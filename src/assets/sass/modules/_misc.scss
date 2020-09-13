@@ -1,0 +1,16 @@
+.flex-wrapper {
+  display: flex;
+
+  @include m(aln-ctr) {
+    align-items: center;
+  }
+
+  @include m(jty-ctr) {
+    justify-content: center;
+  }
+
+  @include m(ctr) {
+    justify-content: center;
+    align-items: center;
+  }
+}
