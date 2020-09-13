@@ -1,0 +1,6 @@
+.pagination {
+  @include e(action-bar) {
+    display: flex;
+    margin: 20px auto;
+  }
+}

@@ -478,6 +478,10 @@ header {
     color: #db4c3f;
     cursor: pointer; }
 
+.pagination__action-bar {
+  display: flex;
+  margin: 20px auto; }
+
 .flex-wrapper {
   display: flex; }
   .flex-wrapper--aln-ctr {

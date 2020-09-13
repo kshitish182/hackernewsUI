@@ -18,7 +18,11 @@ export const getAllData = async () => {
 
 export const getNewsItem = async (newsId) => {
   const item = await get(`/item/${newsId}.json?print+pretty`);
-  console.log(item);
+
+  if (!item) {
+    return console.log('empty');
+  }
+  return item;
 };
 
 // export const getAllData = () =>
@@ -29,22 +33,3 @@ export const getNewsItem = async (newsId) => {
 //       sortToObj(data.data);
 //     })
 //     .catch((err) => console.log(err));
-
-function sortToObj(data) {
-  // console.log(data);
-
-  let arrayObj = {};
-  const compartment = Math.floor(data.length / 10);
-  let i = 0;
-  let arr = [];
-  data.map((value, idx) => {
-    if (idx % 10 === 0 && idx !== 0) {
-      arr = [];
-      i++;
-    }
-    arr = [...arr, value];
-    arrayObj = { ...arrayObj, [i]: [...arr] };
-  });
-
-  console.log(arrayObj);
-}
