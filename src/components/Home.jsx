@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from './Header';
-import { getAllData } from '../utils/http';
+import NewsDashboard from './HackerNewsElements';
 
-const Home = () => {
-  getAllData();
-
-  return <Header />;
-};
+const Home = () => (
+  <>
+    <Header />
+    <NewsDashboard />
+  </>
+);
 
 export default Home;
