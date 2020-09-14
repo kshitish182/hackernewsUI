@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { getDifferenceInTime } from '../../utils/time';
 import { getNewsItem } from '../../services/hackerNewsData';
 
 const NewsItem = ({ newsItemId }) => {
@@ -26,16 +27,18 @@ const NewsItem = ({ newsItemId }) => {
 
   return (
     <>
-      {isdataLoading ? (
-        loadingState
-      ) : (
-        <li className="list__item">
-          <h2 className="text--header">{newsItemData && newsItemData.data.title}</h2>
-          <div className="text--secondary">
-            By: <span>{newsItemData && newsItemData.data.by} </span>
-          </div>
-        </li>
-      )}
+      {isdataLoading
+        ? loadingState
+        : newsItemData && (
+            <li className="list__item">
+              <h2 className="text--header">{newsItemData.data.title}</h2>
+              <div className="text--secondary">
+                Score: <span className="separator">{newsItemData.data.score}</span>
+                By: <span className="separator">{newsItemData.data.by} </span>
+                {getDifferenceInTime(newsItemData.data.time)}
+              </div>
+            </li>
+          )}
     </>
   );
 };
