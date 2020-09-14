@@ -14,6 +14,14 @@ body {
     font-size: 12px;
     color: $gray-light;
   }
+
+  @include m(lg) {
+    font-size: 30px;
+  }
+
+  @include m(md) {
+    font-size: 16px;
+  }
 }
 
 // text-seperator
