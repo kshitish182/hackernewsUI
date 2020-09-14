@@ -564,5 +564,8 @@ body {
 .mt--30 {
   margin-top: 30px; }
 
-.comment-block .comment-block {
-  margin-left: 15px; }
+.comment-block {
+  margin-bottom: 20px;
+  padding: 5px; }
+  .comment-block > .comment-block {
+    margin-left: 15px; }

@@ -28,7 +28,10 @@
 // test
 
 .comment-block {
-  .comment-block {
+  margin-bottom: 20px;
+  padding: 5px;
+
+  > .comment-block {
     margin-left: 15px;
   }
 }

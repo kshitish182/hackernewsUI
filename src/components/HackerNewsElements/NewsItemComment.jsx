@@ -1,4 +1,6 @@
 import React from 'react';
+import { sanitize } from 'dompurify';
+
 import { getNewsItem } from '../../services/hackerNewsData';
 
 const NewsItemComment = ({ commentId }) => {
@@ -16,13 +18,6 @@ const NewsItemComment = ({ commentId }) => {
     })();
   }, [commentId]);
 
-  const getMarkup = () => {
-    return {
-      _html: 'commentData.text',
-    };
-  };
-
-  // const htmlText = commentData &&  {_html: "<div>" + commentData.text + "</div>"} || {_html: "<div><div/>"};
   console.log(commentData);
 
   return (
@@ -31,11 +26,10 @@ const NewsItemComment = ({ commentId }) => {
         ? loadingState
         : commentData && (
             <div className="comment-block">
-              <div dangerouslySetInnerHTML={getMarkup()} />
-              {/* {commentData.text} */}
+              <div dangerouslySetInnerHTML={{ __html: sanitize(commentData.text) }} />
               {commentData &&
                 commentData.kids &&
-                commentData.kids.map((kid, idx) => <NewsItemComment commentId={kid} />)}
+                commentData.kids.map((kid, idx) => <NewsItemComment key={`news-comment-${kid}`} commentId={kid} />)}
             </div>
           )}
     </>
