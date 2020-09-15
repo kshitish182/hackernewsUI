@@ -10,10 +10,14 @@ body {
 }
 
 .container {
-  width: calc(100% - 50px);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  width: calc(100% - 20px);
+
+  @include mq(xs) {
+    width: calc(100% - 50px);
+  }
 }
 
 .col-left {
@@ -25,7 +29,11 @@ body {
 
   @include m(dashboard) {
     width: 100%;
-    padding: 0 50px;
+    padding: 0;
+
+    @include mq(xs) {
+      padding: 0 50px;
+    }
   }
 }
 

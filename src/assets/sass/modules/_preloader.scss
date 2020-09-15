@@ -1,4 +1,6 @@
 .preloader-block {
+  pointer-events: none;
+
   > * {
     animation: flicker 1s infinite linear;
   }
@@ -13,7 +15,11 @@
     }
 
     &.sm {
-      width: 200px;
+      width: 100px;
+
+      @include mq(xs) {
+        width: 200px;
+      }
     }
   }
 }
