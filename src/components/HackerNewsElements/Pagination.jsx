@@ -48,8 +48,9 @@ const Pagination = ({ newsIds }) => {
               ))}
           </ul>
           <div className="pagination__action-bar">
-            {!!pageIndex && <button onClick={() => setPageIndex(pageIndex - 1)}>Previous</button>}
-            <button onClick={() => setPageIndex(pageIndex + 1)}>Next</button>
+            {!!pageIndex && <button className="btn-left-arrow" onClick={() => setPageIndex(pageIndex - 1)} />}
+            <div className="circular-index">{pageIndex + 1}</div>
+            <button className="btn-right-arrow" onClick={() => setPageIndex(pageIndex + 1)} />
           </div>
         </>
       )}
