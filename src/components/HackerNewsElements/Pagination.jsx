@@ -32,28 +32,28 @@ const Pagination = ({ newsIds }) => {
 
   return (
     <>
-      {isNewsDetailExpanded ? (
+      {/* {isNewsDetailExpanded ? (
         <NewsItemDetail newsItemData={selectedNewsItemData} />
-      ) : (
-        <>
-          <ul className="pagination list list--news-feed">
-            {!!paginationSlots &&
-              paginationSlots[pageIndex].map((value, index) => (
-                <NewsItem
-                  key={index}
-                  newsItemId={value}
-                  expandNewsDetail={expandNewsDetail}
-                  getSelectedNewsItemData={getSelectedNewsItemData}
-                />
-              ))}
-          </ul>
-          <div className="pagination__action-bar">
-            {!!pageIndex && <button className="btn-left-arrow" onClick={() => setPageIndex(pageIndex - 1)} />}
-            <div className="circular-index">{pageIndex + 1}</div>
-            <button className="btn-right-arrow" onClick={() => setPageIndex(pageIndex + 1)} />
-          </div>
-        </>
-      )}
+      ) : ( */}
+      <>
+        <ul className="pagination list list--news-feed">
+          {!!paginationSlots &&
+            paginationSlots[pageIndex].map((value, index) => (
+              <NewsItem
+                key={index}
+                newsItemId={value}
+                expandNewsDetail={expandNewsDetail}
+                getSelectedNewsItemData={getSelectedNewsItemData}
+              />
+            ))}
+        </ul>
+        <div className="pagination__action-bar">
+          {!!pageIndex && <button className="btn-left-arrow" onClick={() => setPageIndex(pageIndex - 1)} />}
+          <div className="circular-index">{pageIndex + 1}</div>
+          <button className="btn-right-arrow" onClick={() => setPageIndex(pageIndex + 1)} />
+        </div>
+      </>
+      {/* )} */}
     </>
   );
 };

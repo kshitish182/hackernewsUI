@@ -26,11 +26,11 @@ const NewsDashboard = () => {
   }
 
   return (
-    <main className="main-content container">
-      <div className="col-mid col-mid--dashboard">
-        <Pagination newsIds={newsIds} />
-      </div>
-    </main>
+    // <main className="main-content container">
+    //   <div className="col-mid col-mid--dashboard">
+    <Pagination newsIds={newsIds} />
+    //   {/* </div>
+    // </main> */}
   );
 };
 

@@ -1,7 +1,18 @@
 import React from 'react';
 import NewsItemComment from './NewsItemComment';
 
-const NewsItemDetail = ({ newsItemData }) => {
+const NewsItemDetail = (props) => {
+  React.useEffect(() => {
+    console.log('here');
+    if (!props.location || !props.location.state || !props.location.state.newsItemData) {
+      return;
+    }
+
+    setNewsItemData(props.location.state.newsItemData);
+  });
+
+  const [newsItemData, setNewsItemData] = React.useState('');
+
   return (
     <>
       {newsItemData && (

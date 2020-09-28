@@ -1,11 +1,14 @@
 import React from 'react';
 import Header from './Header';
-import NewsDashboard from './HackerNewsElements';
+import AppRouter from './AppRouter';
+
+// import NewsDashboard from './HackerNewsElements';
 
 const Home = () => (
   <>
     <Header />
-    <NewsDashboard />
+    <AppRouter />
+    {/* <NewsDashboard /> */}
   </>
 );
 
