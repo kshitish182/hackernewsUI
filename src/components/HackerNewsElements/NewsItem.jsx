@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { getDifferenceInTime } from '../../utils/time';
 import { getNewsItem } from '../../services/hackerNewsData';
 
-const NewsItem = ({ newsItemId, expandNewsDetail, getSelectedNewsItemData }) => {
+const NewsItem = ({ newsItemId }) => {
   const [isdataLoading, setLoadingStatus] = React.useState(false);
   const [newsItemData, setNewsItemData] = React.useState(null);
 
@@ -23,23 +24,25 @@ const NewsItem = ({ newsItemId, expandNewsDetail, getSelectedNewsItemData }) => 
     })();
   }, [newsItemId]);
 
-  const handleNewsItemClick = () => {
-    getSelectedNewsItemData(newsItemData);
-    expandNewsDetail(true);
-  };
-
   return (
     <>
       {isdataLoading
         ? loadingState
         : newsItemData && (
-            <li className="list__item" onClick={handleNewsItemClick}>
-              <h2 className="text--header">{newsItemData.title}</h2>
-              <div className="text--secondary">
-                Score: <span className="separator">{newsItemData.score}</span>
-                By: <span className="separator">{newsItemData.by} </span>
-                {getDifferenceInTime(newsItemData.time)}
-              </div>
+            <li className="list__item">
+              <Link
+                to={{
+                  pathname: `/news-feed/${newsItemData.id}`,
+                  state: { newsItemData },
+                }}
+              >
+                <h2 className="text--header">{newsItemData.title}</h2>
+                <div className="text--secondary">
+                  Score: <span className="separator">{newsItemData.score}</span>
+                  By: <span className="separator">{newsItemData.by} </span>
+                  {getDifferenceInTime(newsItemData.time)}
+                </div>
+              </Link>
             </li>
           )}
     </>

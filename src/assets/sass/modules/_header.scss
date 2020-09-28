@@ -14,5 +14,13 @@ header {
     font-weight: bold;
     color: $primary-color;
     cursor: pointer;
+
+    a {
+      color: inherit;
+
+      &:hover {
+        color: inherit;
+      }
+    }
   }
 }

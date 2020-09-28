@@ -1,10 +1,7 @@
 import React from 'react';
 
 import Pagination from './Pagination';
-import {
-  getAllData,
-  // getNewsItem
-} from '../../services/hackerNewsData';
+import { getAllData } from '../../services/hackerNewsData';
 
 const NewsDashboard = () => {
   const [newsIds, updateNewsIds] = React.useState([]);
@@ -25,13 +22,7 @@ const NewsDashboard = () => {
     return <></>;
   }
 
-  return (
-    <main className="main-content container">
-      <div className="col-mid col-mid--dashboard">
-        <Pagination newsIds={newsIds} />
-      </div>
-    </main>
-  );
+  return <Pagination newsIds={newsIds} />;
 };
 
 export default NewsDashboard;

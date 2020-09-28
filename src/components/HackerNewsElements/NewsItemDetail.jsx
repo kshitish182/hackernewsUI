@@ -1,7 +1,17 @@
 import React from 'react';
 import NewsItemComment from './NewsItemComment';
 
-const NewsItemDetail = ({ newsItemData }) => {
+const NewsItemDetail = (props) => {
+  React.useEffect(() => {
+    if (!props.location || !props.location.state || !props.location.state.newsItemData) {
+      return;
+    }
+
+    setNewsItemData(props.location.state.newsItemData);
+  }, [props.location]);
+
+  const [newsItemData, setNewsItemData] = React.useState('');
+
   return (
     <>
       {newsItemData && (
@@ -20,7 +30,7 @@ const NewsItemDetail = ({ newsItemData }) => {
           <h3 className="text--header text--md mx--30">Comments</h3>
           <ul className="list list--comment-feed">
             {newsItemData.kids && !!newsItemData.kids.length ? (
-              newsItemData.kids.map((kid, idx) => <NewsItemComment key={`news-comment-${kid}`} commentId={kid} />)
+              newsItemData.kids.map((kid) => <NewsItemComment key={`news-comment-${kid}`} commentId={kid} />)
             ) : (
               <div className="text--secondary">No comments found</div>
             )}

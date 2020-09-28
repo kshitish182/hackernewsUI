@@ -442,8 +442,9 @@ a {
   font-size: inherit;
   outline: none; }
   a:hover {
-    text-decoration: underline;
     color: #89cff0; }
+  a:focus {
+    outline: none; }
 
 html {
   height: 100%;
@@ -496,6 +497,10 @@ header {
     font-weight: bold;
     color: #db4c3f;
     cursor: pointer; }
+    .header__main-header a {
+      color: inherit; }
+      .header__main-header a:hover {
+        color: inherit; }
 
 .pagination__action-bar {
   display: flex;
