@@ -15,7 +15,9 @@ export function getDifferenceInTime(unixTime) {
     return `${days} day(s) ago`;
   } else if (minutes > 60) {
     return `${hours} hour(s) ago`;
-  } else {
+  } else if (minutes > 1) {
     return `${minutes} minutes ago`;
+  } else {
+    return 'less than a minute ago';
   }
 }

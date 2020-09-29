@@ -13,7 +13,7 @@ const Pagination = (props) => {
    *
    *  {[index]: [groupedArrays]}
    *
-   * @param {array} data
+   * @param {array} data[]
    *
    * @returns {object}
    */
