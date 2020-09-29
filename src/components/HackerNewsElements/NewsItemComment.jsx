@@ -26,6 +26,8 @@ const NewsItemComment = ({ commentId }) => {
     })();
   }, [commentId]);
 
+  console.log(commentData && commentData.time);
+
   return (
     <>
       {isDataLoading

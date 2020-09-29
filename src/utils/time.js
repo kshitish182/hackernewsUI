@@ -1,11 +1,11 @@
 // get difference in time
 
 export function getDifferenceInTime(unixTime) {
-  if (!unixTime) {
+  if (!unixTime || unixTime > getCurrentUnixTime()) {
     return 'N/A';
   }
 
-  const minutes = Math.floor((Math.floor(new Date().getTime() / 1000.0) - unixTime) / 60);
+  const minutes = Math.floor((getCurrentUnixTime() - unixTime) / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
 
@@ -21,3 +21,5 @@ export function getDifferenceInTime(unixTime) {
     return 'less than a minute ago';
   }
 }
+
+export const getCurrentUnixTime = () => Math.floor(new Date().getTime() / 1000.0);
