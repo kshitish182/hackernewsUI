@@ -7,6 +7,9 @@ body {
   height: 100%;
   width: 100%;
   overflow: auto;
+
+  // to fix margin-collpase issue
+  padding-top: 1px;
 }
 
 .container {

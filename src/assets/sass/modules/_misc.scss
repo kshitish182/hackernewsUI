@@ -92,3 +92,29 @@
   height: 15px;
   transform: rotate(-45deg) translate(-50%);
 }
+
+.empty-state {
+  flex-direction: column;
+}
+
+.loader-wrapper {
+  margin-bottom: 10px;
+}
+
+.loader {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid $gray-lighter;
+  border-left-color: $gray-light;
+  animation: spin-loader 1s linear infinite;
+}
+
+@keyframes spin-loader {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
