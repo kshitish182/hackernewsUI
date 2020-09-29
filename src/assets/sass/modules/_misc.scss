@@ -93,6 +93,27 @@
   transform: rotate(-45deg) translate(-50%);
 }
 
+button {
+  background: none;
+  outline: none;
+}
+
+.btn--icon {
+  border: none;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.right {
+    margin-left: 15px;
+  }
+
+  &.left {
+    margin-right: 15px;
+  }
+}
+
 .empty-state {
   flex-direction: column;
 }
