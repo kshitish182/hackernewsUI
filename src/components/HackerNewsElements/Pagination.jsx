@@ -2,30 +2,43 @@ import React from 'react';
 
 import NewsItem from './NewsItem';
 
-const Pagination = ({ newsIds }) => {
+const Pagination = (props) => {
+  const { newsIds, itemsInView } = props;
   const [paginationSlots, setPaginationSlot] = React.useState(null);
   const [pageIndex, setPageIndex] = React.useState(0);
 
-  function sortToObj(data) {
-    // console.log(data);
+  /**
+   *  This function takes in array of ids
+   *  and returns sortedObject
+   *
+   *  {[index]: [groupedArrays]}
+   *
+   * @param {array} data[]
+   *
+   * @returns {object}
+   */
 
-    let arrayObj = {};
-    // const compartment = Math.floor(data.length / 10);
-    let i = 0;
-    let arr = [];
-    data.map((value, idx) => {
-      if (idx % 10 === 0 && idx !== 0) {
-        arr = [];
-        i++;
+  function sortToObj(data) {
+    let sortedObj = {};
+    let index = 0;
+    let groupedArray = [];
+
+    data.forEach((value, idx) => {
+      if (idx % itemsInView === 0 && idx !== 0) {
+        groupedArray = [];
+        index++;
       }
-      arr = [...arr, value];
-      arrayObj = { ...arrayObj, [i]: [...arr] };
+
+      groupedArray = [...groupedArray, value];
+      sortedObj = { ...sortedObj, [index]: [...groupedArray] };
     });
 
-    setPaginationSlot(arrayObj);
+    return sortedObj;
   }
 
-  React.useEffect(() => sortToObj(newsIds), [newsIds]);
+  React.useEffect(() => setPaginationSlot(sortToObj(newsIds)), [newsIds]);
+
+  const isLastPage = !!paginationSlots && pageIndex === Object.keys(paginationSlots).length - 1;
 
   return (
     <>
@@ -36,7 +49,7 @@ const Pagination = ({ newsIds }) => {
       <div className="pagination__action-bar">
         {!!pageIndex && <button className="btn-left-arrow" onClick={() => setPageIndex(pageIndex - 1)} />}
         <div className="circular-index">{pageIndex + 1}</div>
-        <button className="btn-right-arrow" onClick={() => setPageIndex(pageIndex + 1)} />
+        {!isLastPage ? <button className="btn-right-arrow" onClick={() => setPageIndex(pageIndex + 1)} /> : <></>}
       </div>
     </>
   );

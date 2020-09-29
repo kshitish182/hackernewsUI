@@ -1,11 +1,18 @@
-// get difference in time
+/**
+ *
+ * Gets difference in time in words from given unix time to the current time
+ *
+ * @param {number} unixTime
+ *
+ * @returns {string}
+ */
 
 export function getDifferenceInTime(unixTime) {
-  if (!unixTime) {
+  if (!unixTime || unixTime > getCurrentUnixTime()) {
     return 'N/A';
   }
 
-  const minutes = Math.floor((Math.floor(new Date().getTime() / 1000.0) - unixTime) / 60);
+  const minutes = Math.floor((getCurrentUnixTime() - unixTime) / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
 
@@ -15,7 +22,11 @@ export function getDifferenceInTime(unixTime) {
     return `${days} day(s) ago`;
   } else if (minutes > 60) {
     return `${hours} hour(s) ago`;
-  } else {
+  } else if (minutes > 1) {
     return `${minutes} minutes ago`;
+  } else {
+    return 'less than a minute ago';
   }
 }
+
+export const getCurrentUnixTime = () => Math.floor(new Date().getTime() / 1000.0);

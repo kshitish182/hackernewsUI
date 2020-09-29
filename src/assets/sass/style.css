@@ -453,7 +453,8 @@ html {
 body {
   height: 100%;
   width: 100%;
-  overflow: auto; }
+  overflow: auto;
+  padding-top: 1px; }
 
 .container {
   margin: 0 auto;
@@ -650,3 +651,23 @@ body {
   width: 15px;
   height: 15px;
   transform: rotate(-45deg) translate(-50%); }
+
+.empty-state {
+  flex-direction: column; }
+
+.loader-wrapper {
+  margin-bottom: 10px; }
+
+.loader {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #ededed;
+  border-left-color: #b3b3b3;
+  animation: spin-loader 1s linear infinite; }
+
+@keyframes spin-loader {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
