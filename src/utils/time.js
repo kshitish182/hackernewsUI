@@ -1,4 +1,11 @@
-// get difference in time
+/**
+ *
+ * Gets difference in time in words from given unix time to the current time
+ *
+ * @param {number} unixTime
+ *
+ * @returns {string}
+ */
 
 export function getDifferenceInTime(unixTime) {
   if (!unixTime || unixTime > getCurrentUnixTime()) {

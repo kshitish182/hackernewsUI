@@ -1,6 +1,6 @@
 import { getDifferenceInTime, getCurrentUnixTime } from './time';
 
-test('it should get diffenrence in given unix time to the current time', () => {
+test('it should get diffenrence in time from given unix time to the current time', () => {
   const currentUnixTime = getCurrentUnixTime();
   const futureUnixTime = currentUnixTime + 1000;
 
