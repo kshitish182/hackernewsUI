@@ -652,6 +652,20 @@ body {
   height: 15px;
   transform: rotate(-45deg) translate(-50%); }
 
+button {
+  background: none;
+  outline: none; }
+
+.btn--icon {
+  border: none; }
+  .btn--icon svg {
+    width: 20px;
+    height: 20px; }
+  .btn--icon.right {
+    margin-left: 15px; }
+  .btn--icon.left {
+    margin-right: 15px; }
+
 .empty-state {
   flex-direction: column; }
 
