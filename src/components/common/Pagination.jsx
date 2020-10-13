@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Pagination = (props) => {
-  const { dataArray, pageLimit, paginationItem, paginationActionBar = '' } = props;
+  const { dataArray, pageLimit, paginationItem, paginationActionBar = '', goToPage = 0 } = props;
   const [paginationSlots, setPaginationSlot] = React.useState(null);
   const [pageIndex, setPageIndex] = React.useState(0);
 
@@ -34,13 +34,25 @@ const Pagination = (props) => {
     return sortedObj;
   }
 
+  React.useEffect(() => {
+    if (!goToPage) {
+      return;
+    }
+
+    return setPageIndex(goToPage - 1);
+  });
+
   React.useEffect(() => setPaginationSlot(sortToObj(dataArray)), [dataArray]);
 
   const isLastPage = !!paginationSlots && pageIndex === Object.keys(paginationSlots).length - 1;
 
+  const isValidPageIndex = !!paginationSlots && pageIndex >= 0 && pageIndex <= Object.keys(paginationSlots).length - 1;
+
+  console.log(!!paginationActionBar);
+
   const ActionBar =
     !!paginationActionBar && typeof paginationActionBar === 'function' ? (
-      paginationActionBar
+      <RenderActionBar ActionBarComponent={paginationActionBar} currentPageIndex={pageIndex} isLastPage={isLastPage} />
     ) : (
       <div className="pagination__action-bar">
         {!!pageIndex && <button className="btn-left-arrow" onClick={() => setPageIndex(pageIndex - 1)} />}
@@ -49,29 +61,45 @@ const Pagination = (props) => {
       </div>
     );
 
-  console.log(paginationItem);
-
   return (
     <>
-      <ul className="pagination list list--news-feed">
-        {!!paginationSlots &&
-          paginationSlots[pageIndex].map((value, index) => (
-            <RenderListItem key={index} listItemData={value} listComponent={paginationItem} />
-          ))}
-      </ul>
-      {ActionBar}
+      {isValidPageIndex ? (
+        <>
+          <ul className="pagination list list--news-feed">
+            {!!paginationSlots &&
+              paginationSlots[pageIndex].map((value, index) => (
+                <RenderListItem key={index} listItemData={value} ListComponent={paginationItem} />
+              ))}
+          </ul>
+          {ActionBar}
+        </>
+      ) : (
+        <RenderErrorComponent />
+      )}
     </>
   );
 };
 
 const RenderListItem = (props) => {
-  const { listComponent } = props;
+  const { ListComponent } = props;
 
-  if (!!listComponent && typeof listComponent !== 'function') {
+  if (!!ListComponent && typeof ListComponent !== 'function') {
     return <></>;
   }
 
-  return React.createElement(listComponent, { ...props }, null);
+  return <ListComponent {...props} />;
 };
+
+const RenderActionBar = (props) => {
+  const { ActionBarComponent } = props;
+
+  if (!!ActionBarComponent && typeof ActionBarComponent !== 'function') {
+    return <></>;
+  }
+
+  return <ActionBarComponent {...props} />;
+};
+
+const RenderErrorComponent = () => <div>Page Not Found !!!</div>;
 
 export default Pagination;
