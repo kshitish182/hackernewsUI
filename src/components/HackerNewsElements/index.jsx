@@ -1,7 +1,11 @@
 import React from 'react';
 
-import Pagination from './Pagination';
+// import Pagination from './Pagination';
 import { getAllData } from '../../services/hackerNewsData';
+
+import Pagination from '../common/Pagination';
+import NewsItem from './NewsItem';
+// import
 
 const loadingState = (
   <div className="flex-wrapper flex-wrapper--ctr empty-state">
@@ -32,7 +36,9 @@ const NewsDashboard = () => {
     return loadingState;
   }
 
-  return <Pagination newsIds={newsIds} itemsInView={NEWS_ITEMS_IN_VIEW} />;
+  // return <Pagination newsIds={newsIds} itemsInView={NEWS_ITEMS_IN_VIEW} />;
+
+  return <Pagination dataArray={newsIds} paginationItem={NewsItem} pageLimit={NEWS_ITEMS_IN_VIEW} />;
 };
 
 export default NewsDashboard;

@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import { getDifferenceInTime } from '../../utils/time';
 import { getNewsItem } from '../../services/hackerNewsData';
 
-const NewsItem = ({ newsItemId }) => {
+const NewsItem = (props) => {
+  // const {newsItemId} = props;
+  const newsItemId = props.listItemData;
   const [isdataLoading, setLoadingStatus] = React.useState(false);
   const [newsItemData, setNewsItemData] = React.useState(null);
 
