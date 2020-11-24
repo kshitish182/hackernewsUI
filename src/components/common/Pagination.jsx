@@ -45,6 +45,7 @@ const Pagination = (props) => {
   React.useEffect(() => setPaginationSlot(sortToObj(dataArray)), [dataArray]);
 
   const isLastPage = !!paginationSlots && pageIndex === Object.keys(paginationSlots).length - 1;
+  const lastPage = !!paginationSlots && Object.keys(paginationSlots).length - 1;
 
   const isValidPageIndex = !!paginationSlots && pageIndex >= 0 && pageIndex <= Object.keys(paginationSlots).length - 1;
 
@@ -52,7 +53,12 @@ const Pagination = (props) => {
 
   const ActionBar =
     !!paginationActionBar && typeof paginationActionBar === 'function' ? (
-      <RenderActionBar ActionBarComponent={paginationActionBar} currentPageIndex={pageIndex} isLastPage={isLastPage} />
+      <RenderActionBar
+        ActionBarComponent={paginationActionBar}
+        currentPageIndex={pageIndex}
+        isLastPage={isLastPage}
+        lastPage={lastPage}
+      />
     ) : (
       <div className="pagination__action-bar">
         {!!pageIndex && <button className="btn-left-arrow" onClick={() => setPageIndex(pageIndex - 1)} />}
