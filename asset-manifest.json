@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/hackernewsUI/static/css/main.3e630cac.chunk.css",
-    "main.js": "/hackernewsUI/static/js/main.a0239304.chunk.js",
-    "main.js.map": "/hackernewsUI/static/js/main.a0239304.chunk.js.map",
+    "main.css": "/hackernewsUI/static/css/main.77c4a92b.chunk.css",
+    "main.js": "/hackernewsUI/static/js/main.b8b0cee3.chunk.js",
+    "main.js.map": "/hackernewsUI/static/js/main.b8b0cee3.chunk.js.map",
     "runtime-main.js": "/hackernewsUI/static/js/runtime-main.39b7eaf6.js",
     "runtime-main.js.map": "/hackernewsUI/static/js/runtime-main.39b7eaf6.js.map",
-    "static/js/2.c066944a.chunk.js": "/hackernewsUI/static/js/2.c066944a.chunk.js",
-    "static/js/2.c066944a.chunk.js.map": "/hackernewsUI/static/js/2.c066944a.chunk.js.map",
+    "static/js/2.02f20da3.chunk.js": "/hackernewsUI/static/js/2.02f20da3.chunk.js",
+    "static/js/2.02f20da3.chunk.js.map": "/hackernewsUI/static/js/2.02f20da3.chunk.js.map",
     "index.html": "/hackernewsUI/index.html",
-    "precache-manifest.122ab4c4aa5855abf20c2e7e46710062.js": "/hackernewsUI/precache-manifest.122ab4c4aa5855abf20c2e7e46710062.js",
+    "precache-manifest.6d2f920e1c67f36c09ca41ee082c82e7.js": "/hackernewsUI/precache-manifest.6d2f920e1c67f36c09ca41ee082c82e7.js",
     "service-worker.js": "/hackernewsUI/service-worker.js",
-    "static/css/main.3e630cac.chunk.css.map": "/hackernewsUI/static/css/main.3e630cac.chunk.css.map",
-    "static/js/2.c066944a.chunk.js.LICENSE.txt": "/hackernewsUI/static/js/2.c066944a.chunk.js.LICENSE.txt"
+    "static/css/main.77c4a92b.chunk.css.map": "/hackernewsUI/static/css/main.77c4a92b.chunk.css.map",
+    "static/js/2.02f20da3.chunk.js.LICENSE.txt": "/hackernewsUI/static/js/2.02f20da3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.39b7eaf6.js",
-    "static/js/2.c066944a.chunk.js",
-    "static/css/main.3e630cac.chunk.css",
-    "static/js/main.a0239304.chunk.js"
+    "static/js/2.02f20da3.chunk.js",
+    "static/css/main.77c4a92b.chunk.css",
+    "static/js/main.b8b0cee3.chunk.js"
   ]
 }
