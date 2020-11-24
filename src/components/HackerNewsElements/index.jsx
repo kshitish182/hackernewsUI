@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
-// import Pagination from './Pagination';
 import { getAllData } from '../../services/hackerNewsData';
 
 import NewsItem from './NewsItem';
@@ -19,8 +18,7 @@ const loadingState = (
 const useQuery = () => new URLSearchParams(useLocation().search);
 
 const PagninationActionBar = (props) => {
-  const pageIndex = props.currentPageIndex;
-  const { lastPage, isLastPage } = props;
+  const { lastPage, isLastPage, currentPageIndex: pageIndex } = props;
 
   return (
     <div className="pagination__action-bar">
@@ -106,8 +104,6 @@ const NewsDashboard = (props) => {
   if (isDataFetching) {
     return loadingState;
   }
-
-  // return <Pagination newsIds={newsIds} itemsInView={NEWS_ITEMS_IN_VIEW} />;
 
   return (
     <Pagination

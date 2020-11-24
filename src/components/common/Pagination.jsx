@@ -40,7 +40,7 @@ const Pagination = (props) => {
     }
 
     return setPageIndex(goToPage - 1);
-  });
+  }, [setPageIndex, goToPage]);
 
   React.useEffect(() => setPaginationSlot(sortToObj(dataArray)), [dataArray]);
 
@@ -48,8 +48,6 @@ const Pagination = (props) => {
   const lastPage = !!paginationSlots && Object.keys(paginationSlots).length - 1;
 
   const isValidPageIndex = !!paginationSlots && pageIndex >= 0 && pageIndex <= Object.keys(paginationSlots).length - 1;
-
-  console.log(!!paginationActionBar);
 
   const ActionBar =
     !!paginationActionBar && typeof paginationActionBar === 'function' ? (

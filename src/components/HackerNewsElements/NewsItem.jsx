@@ -6,7 +6,6 @@ import { getNewsItem } from '../../services/hackerNewsData';
 
 const NewsItem = (props) => {
   const newsItemId = props.listItemData;
-  // const {newsItemId} = props;
   const [isdataLoading, setLoadingStatus] = React.useState(false);
   const [newsItemData, setNewsItemData] = React.useState(null);
 

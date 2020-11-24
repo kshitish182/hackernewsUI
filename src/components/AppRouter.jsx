@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+
 import NewsDashboard from './HackerNewsElements';
-// import NewsItem from './HackerNewsElements/NewsItem';
 import NewsItemDetail from './HackerNewsElements/NewsItemDetail';
 
 const AppRouter = () => (
