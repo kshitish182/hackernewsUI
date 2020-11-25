@@ -6,7 +6,7 @@ const Header = () => (
     <div className="header container">
       <div className="col-left">
         <h1 className="header__main-header">
-          <Link to="/news-feed" title="home">
+          <Link to="/news-feed?page=1" title="home">
             hackernewsUI
           </Link>
         </h1>
