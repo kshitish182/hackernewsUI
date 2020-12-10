@@ -1,0 +1,148 @@
+.flex-wrapper {
+  display: flex;
+
+  @include m(aln-ctr) {
+    align-items: center;
+  }
+
+  @include m(jty-ctr) {
+    justify-content: center;
+  }
+
+  @include m(ctr) {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.mt {
+  @include m(5) {
+    margin-top: 5px;
+  }
+}
+
+.mx {
+  @include m(30) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+// test
+
+.comment-block {
+  padding: 10px;
+  font-size: 16px;
+
+  a {
+    color: $link;
+
+    &:hover {
+      color: $link--hover;
+    }
+  }
+
+  @include mq(xs) {
+    padding: 15px;
+  }
+
+  @include e(comment) {
+    margin-top: 10px;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+.circular-index {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.btn-right-arrow {
+  background: none;
+  outline: none;
+  /* border: none; */
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-color: black;
+  border-left: none;
+  border-bottom: none;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg) translate(50%);
+}
+
+.btn-left-arrow {
+  background: none;
+  outline: none;
+  /* border: none; */
+  border-top-width: 2px;
+  border-left-width: 2px;
+  border-color: black;
+  border-right: none;
+  border-bottom: none;
+  width: 15px;
+  height: 15px;
+  transform: rotate(-45deg) translate(-50%);
+}
+
+button {
+  background: none;
+  outline: none;
+}
+
+.btn--icon {
+  border: none;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.btn--pagination {
+  margin-top: -5px;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+
+  &.right {
+    margin-left: 20px;
+  }
+
+  &.left {
+    margin-right: 20px;
+  }
+}
+
+.empty-state {
+  flex-direction: column;
+}
+
+.loader-wrapper {
+  margin-bottom: 10px;
+}
+
+.loader {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid $gray-lighter;
+  border-left-color: $gray-light;
+  animation: spin-loader 1s linear infinite;
+}
+
+@keyframes spin-loader {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

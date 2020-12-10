@@ -1,0 +1,44 @@
+body {
+  font-size: 14px;
+  line-height: 1.2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text {
+  @include m(header) {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  @include m(secondary) {
+    font-size: 12px;
+    color: $gray-light;
+  }
+
+  @include m(lg) {
+    font-size: 30px;
+  }
+
+  @include m(md) {
+    font-size: 16px;
+  }
+
+  @include m(bold) {
+    font-weight: bold;
+  }
+
+  @include m(center) {
+    text-align: center;
+  }
+}
+
+// text-seperator
+
+.separator {
+  &:after {
+    content: '|';
+    padding: 0 5px;
+    color: $gray-light;
+    font-weight: normal;
+  }
+}
